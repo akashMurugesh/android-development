@@ -1,22 +1,18 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
-    id 'com.google.dagger.hilt.android'
 }
 
 android {
-    namespace 'com.example.akash'
+    namespace 'com.example.search'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.akash"
         minSdk 24
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -32,15 +28,9 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
-    dataBinding{
-        enabled=true
-    }
 }
 
 dependencies {
-
-    implementation project(":feature:home")
-    implementation project(":feature:search")
 
     implementation Deps.core
     implementation Deps.appCompat
@@ -49,10 +39,4 @@ dependencies {
     testImplementation TestImplementation.junit
     androidTestImplementation AndroidTestImplementation.junit
     androidTestImplementation AndroidTestImplementation.espresso
-
-    implementation LottieAnimations.lottieAnimations
-
-    implementation DaggerHilt.hilt
-    kapt DaggerHilt.hiltAndroidCompiler
-    kapt DaggerHilt.hiltCompiler
 }
