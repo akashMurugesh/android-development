@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Akash"
 include ':app'
+include ':feature:home'
+include ':feature:search'
